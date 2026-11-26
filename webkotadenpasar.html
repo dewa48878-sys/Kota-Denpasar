@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denpasar | Kota Berwawasan Budaya</title>
+
+<style>
+:root {
+    --red: #a92f27;
+    --gold: #e5b85c;
+    --ink: #202522;
+    --muted: #68716c;
+    --cream: #faf7f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--ink);
+    line-height: 1.65;
+    background: white;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* TOPBAR */
+.topbar {
+    background: #242b27;
+    color: #f8f4eb;
+    text-align: center;
+    padding: 8px;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* NAVBAR */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: white;
+    border-bottom: 1px solid #eee;
+}
+
+nav {
+    max-width: 1120px;
+    margin: auto;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--red);
+}
+
+.brand span {
+    color: var(--ink);
+}
+
+.navlinks {
+    display: flex;
+    gap: 25px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.navlinks a:hover {
+    color: var(--red);
+}
+
+/* HERO */
+.hero {
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    color: white;
+    background:
+    linear-gradient(90deg,
+    rgba(20,28,25,.88),
+    rgba(20,28,25,.48)),
+    url("https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.hero-inner {
+    max-width: 1120px;
+    width: 100%;
+    margin: auto;
+    padding: 80px 24px;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.05;
+    margin: 18px 0;
+}
+
+.hero p {
+    max-width: 590px;
+    color: #eee;
+    font-size: 17px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 13px 22px;
+    background: var(--gold);
+    color: #242b27;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: white;
+}
+
+/* SECTION */
+section {
+    padding: 78px 24px;
+}
+
+.wrap {
+    max-width: 1080px;
+    margin: auto;
+}
+
+.section-kicker {
+    color: var(--red);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+.leader-photo {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    object-position: center;
+    background: #b51f24;
+    display: block;
+}
+
+.leader {
+    border: 1px solid #eee;
+    border-radius: 9px;
+    overflow: hidden;
+    background: white;
+    transition: .3s;
+}
+
+.leader:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+
+.leader-body {
+    padding: 22px;
+}
+
+h2 {
+    font-size: clamp(29px, 4vw, 42px);
+    line-height: 1.2;
+    margin: 10px 0 18px;
+}
+
+.intro {
+    max-width: 700px;
+    color: var(--muted);
+}
+
+/* ABOUT */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 44px;
+    align-items: center;
+}
+
+.about-art {
+    min-height: 320px;
+    border-radius: 10px;
+    background:
+    linear-gradient(145deg,
+    rgba(34,47,40,.2),
+    rgba(34,47,40,.5)),
+    url("https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1000&q=85")
+    center/cover;
+    box-shadow: 18px 18px 0 #f0e5d1;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.fact {
+    background: var(--cream);
+    padding: 17px;
+    border-radius: 7px;
+}
+
+.fact strong {
+    display: block;
+    color: var(--red);
+    font-size: 22px;
+}
+
+.fact span {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* HISTORY */
+.history {
+    background: var(--cream);
+}
+
+.timeline {
+    margin-top: 35px;
+    border-left: 2px solid #d9bd83;
+    padding-left: 26px;
+    display: grid;
+    gap: 25px;
+}
+
+.event {
+    position: relative;
+}
+
+.event::before {
+    content: "";
+    position: absolute;
+    left: -34px;
+    top: 7px;
+    width: 14px;
+    height: 14px;
+    background: var(--red);
+    border: 3px solid var(--cream);
+    border-radius: 50%;
+}
+
+.event b {
+    color: var(--red);
+    font-size: 14px;
+}
+
+.event p {
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+/* LEADERS */
+.leaders {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.leader {
+    border: 1px solid #eee;
+    border-radius: 9px;
+    overflow: hidden;
+    background: white;
+    transition: .3s;
+}
+
+.leader:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+
+.leader-top {
+    height: 150px;
+    background: linear-gradient(135deg,#812a25,#c66c4d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.leader-body {
+    padding: 22px;
+}
+
+.leader-body small {
+    color: var(--red);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.leader-body h3 {
+    font-size: 21px;
+    margin: 7px 0;
+}
+
+.leader-body p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* CULTURE */
+.culture {
+    background: #242b27;
+    color: white;
+}
+
+.culture .intro {
+    color: #d5dbd6;
+}
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.culture-card {
+    padding: 24px;
+    border: 1px solid #536058;
+    border-radius: 8px;
+    background: #2c3731;
+    transition: .3s;
+}
+
+.culture-card:hover {
+    transform: translateY(-5px);
+}
+
+.symbol {
+    font-size: 30px;
+}
+
+.culture-card h3 {
+    margin: 12px 0 6px;
+    color: var(--gold);
+}
+
+.culture-card p {
+    font-size: 14px;
+    color: #d5dbd6;
+}
+
+/* FOOTER */
+footer {
+    background: #171d19;
+    color: #cbd1cc;
+    padding: 28px 24px;
+    text-align: center;
+    font-size: 13px;
+}
+
+footer strong {
+    color: var(--gold);
+}
+
+/* RESPONSIVE */
+@media(max-width:760px) {
+
+    .navlinks {
+        gap: 12px;
+        font-size: 12px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-art {
+        min-height: 240px;
+    }
+
+    .leaders,
+    .culture-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .facts {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero {
+        min-height: 500px;
+    }
+
+    nav {
+        padding: 13px 16px;
+    }
+}
+
+@media(max-width:430px) {
+    .brand {
+        font-size: 17px;
+    }
+
+    .navlinks {
+        gap: 9px;
+    }
+
+    .navlinks a {
+        font-size: 11px;
+    }
+
+    .facts {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+    PROFIL KOTA DENPASAR · BALI, INDONESIA
+</div>
+
+<!-- NAVBAR -->
+<header>
+<nav>
+    <a class="brand" href="#beranda">
+        DEN<span>PASAR.</span>
+    </a>
+
+    <div class="navlinks">
+        <a href="#tentang">Tentang</a>
+        <a href="#sejarah">Sejarah</a>
+        <a href="#pemimpin">Pemimpin</a>
+        <a href="#budaya">Budaya</a>
+    </div>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="beranda">
+    <div class="hero-inner">
+        <div class="eyebrow">
+            PULAU BALI · INDONESIA
+        </div>
+
+        <h1>
+            Denpasar,<br>
+            Jantung Pulau Dewata.
+        </h1>
+
+        <p>
+            Kota yang mempertemukan warisan budaya Bali,
+            kehidupan masyarakat yang dinamis, dan semangat
+            menuju masa depan yang kreatif.
+        </p>
+
+        <a href="#tentang" class="btn">
+            Jelajahi Denpasar ↓
+        </a>
+    </div>
+</section>
+
+<!-- TENTANG -->
+<section id="tentang">
+<div class="wrap about-grid">
+
+    <div>
+        <div class="section-kicker">
+            Mengenal Denpasar
+        </div>
+
+        <h2>Kota kreatif berbasis budaya</h2>
+
+        <p class="intro">
+            Denpasar adalah ibu kota Provinsi Bali sekaligus
+            pusat pemerintahan, perdagangan, pendidikan,
+            dan kegiatan masyarakat di Bali. Kota ini dikenal
+            dengan kehidupan perkotaan yang berkembang,
+            namun tetap menjaga adat dan tradisi.
+        </p>
+
+        <div class="facts">
+            <div class="fact">
+                <strong>1992</strong>
+                <span>Menjadi kotamadya</span>
+            </div>
+
+            <div class="fact">
+                <strong>4</strong>
+                <span>Kecamatan</span>
+            </div>
+
+            <div class="fact">
+                <strong>Bali</strong>
+                <span>Provinsi</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-art"></div>
+
+</div>
+</section>
+
+<!-- SEJARAH -->
+<section class="history" id="sejarah">
+<div class="wrap">
+
+    <div class="section-kicker">
+        Jejak masa lalu
+    </div>
+
+    <h2>Sejarah Kota Denpasar</h2>
+
+    <p class="intro">
+        Nama Denpasar berasal dari kata "den" yang berarti
+        utara dan "pasar", sehingga dimaknai sebagai taman
+        atau kawasan yang berada di sebelah utara pasar.
+        Sejarahnya berkaitan erat dengan Kerajaan Badung.
+    </p>
+
+    <div class="timeline">
+
+        <div class="event">
+            <b>Sekitar 1750</b>
+            <p>
+                Raja Badung Kyayi Jambe Aji membangun
+                Puri Jambe Ksatria dan taman kerajaan
+                yang menjadi asal-usul nama Denpasar.
+            </p>
+        </div>
+
+        <div class="event">
+            <b>1788</b>
+            <p>
+                I Gusti Ngurah Made Pemecutan mengembangkan
+                kawasan tersebut menjadi Puri Agung Denpasar.
+            </p>
+        </div>
+
+        <div class="event">
+            <b>20 September 1906</b>
+            <p>
+                Terjadi Puputan Badung, peristiwa perlawanan
+                Kerajaan Badung terhadap pasukan kolonial Belanda.
+            </p>
+        </div>
+
+        <div class="event">
+            <b>1978</b>
+            <p>
+                Denpasar ditetapkan sebagai Kota Administratif
+                melalui Peraturan Pemerintah Nomor 20 Tahun 1978.
+            </p>
+        </div>
+
+        <div class="event">
+            <b>15 Januari 1992</b>
+            <p>
+                Undang-Undang Nomor 1 Tahun 1992 disahkan.
+                Denpasar berkembang menjadi kota otonom
+                dan ibu kota Provinsi Bali.
+            </p>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- PEMIMPIN -->
+<section id="pemimpin">
+<div class="wrap">
+
+<!-- PEMIMPIN -->
+<section id="pemimpin">
+<div class="wrap">
+
+    <div class="section-kicker">
+        Pemerintahan Kota
+    </div>
+
+    <h2>Wali Kota dan Wakil Wali Kota</h2>
+
+    <p class="intro">
+        Pimpinan Pemerintah Kota Denpasar
+        periode 2025–2030.
+    </p>
+
+    <div class="leaders">
+
+        <!-- WALI KOTA -->
+        <article class="leader">
+
+            <img
+                class="leader-photo"
+                src="https://denpasarkota.go.id/new/public/ckfinder/userfiles/images/Desain%20tanpa%20judul%20%281%29.png"
+                alt="I Gusti Ngurah Jaya Negara"
+            >
+
+            <div class="leader-body">
+
+                <small>WALI KOTA DENPASAR</small>
+
+                <h3>
+                    I Gusti Ngurah Jaya Negara, S.E.
+                </h3>
+
+                <p>
+                    Wali Kota Denpasar
+                    periode 2025–2030.
+                </p>
+
+            </div>
+        </article>
+
+        <!-- WAKIL WALI KOTA -->
+        <article class="leader">
+
+            <img
+                class="leader-photo"
+                src="https://denpasarkota.go.id/new/public/ckfinder/userfiles/images/Desain%20tanpa%20judul%20%282%29.png"
+                alt="I Kadek Agus Arya Wibawa"
+            >
+
+            <div class="leader-body">
+
+                <small>WAKIL WALI KOTA DENPASAR</small>
+
+                <h3>
+                    I Kadek Agus Arya Wibawa, S.E., M.M.
+                </h3>
+
+                <p>
+                    Wakil Wali Kota Denpasar
+                    periode 2025–2030.
+                </p>
+
+            </div>
+        </article>
+
+    </div>
+</div>
+</section>
+
+   
+
+    </div>
+</div>
+</section>
+
+<!-- BUDAYA -->
+<section class="culture" id="budaya">
+<div class="wrap">
+
+    <div class="section-kicker">
+        Warisan dan identitas
+    </div>
+
+    <h2>Budaya yang tetap hidup</h2>
+
+    <p class="intro">
+        Di tengah perkembangan kota, tradisi dan kehidupan
+        budaya Bali tetap menjadi bagian penting dari
+        identitas Denpasar.
+    </p>
+
+    <div class="culture-grid">
+
+        <article class="culture-card">
+            <div class="symbol">🛕</div>
+            <h3>Pura dan tradisi</h3>
+            <p>
+                Pura, upacara adat, dan kegiatan keagamaan
+                menjadi bagian dari kehidupan masyarakat.
+            </p>
+        </article>
+
+        <article class="culture-card">
+            <div class="symbol">🎭</div>
+            <h3>Seni dan budaya</h3>
+            <p>
+                Tari, musik gamelan, kerajinan, dan seni rupa
+                diwariskan lintas generasi.
+            </p>
+        </article>
+
+        <article class="culture-card">
+            <div class="symbol">🏮</div>
+            <h3>Perayaan lokal</h3>
+            <p>
+                Perayaan seperti Hari Raya Nyepi dan
+                kegiatan budaya memperkuat kebersamaan warga.
+            </p>
+        </article>
+
+    </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>
+        <strong>DENPASAR.</strong>
+        · Mengenal sejarah, pemerintahan, dan budaya Kota Denpasar.
+    </p>
+
+    <p style="margin-top:7px">
+        Informasi sejarah dan pemerintahan dirangkum
+        dari sumber resmi Pemerintah Kota Denpasar.
+    </p>
+</footer>
+
+</body>
+</html>
